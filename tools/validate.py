@@ -5,6 +5,9 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "tools"))
+import takeover_rules  # noqa: E402
+
 errors = []
 
 
@@ -55,6 +58,11 @@ if opts:
     check(opts.get("maxPlanetsControlled", 0) >= 1, "maxPlanetsControlled must be >= 1")
     check(opts.get("speedScaling", {}).get("capMultiplier", 0) <= 1.25,
           "option capMultiplier must not exceed 1.25")
+    zone = opts.get("zone", {})
+    check(takeover_rules.valid_color(zone.get("perimeterColor")),
+          "zone.perimeterColor must be #RRGGBBAA")
+    check(takeover_rules.valid_color(zone.get("interiorColor")),
+          "zone.interiorColor must be #RRGGBBAA")
 
 if errors:
     print("Validation failed:")

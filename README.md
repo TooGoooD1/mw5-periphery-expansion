@@ -33,7 +33,8 @@ other mods' files. See `docs/compatibility.md`.
 mod/            Mod package contents (mod.json + data)
   data/         options, modifiers, takeover chain, industries
 docs/           design and compatibility notes
-tools/          validate.py (data checks), package.py (zip for release)
+tools/          validate.py, takeover_rules.py (reference rules), package.py
+tests/          unit tests for the rules
 scripts/        helper scripts for first-time git setup
 .github/        CI workflow that runs the validator
 ```
@@ -41,8 +42,9 @@ scripts/        helper scripts for first-time git setup
 ## Development
 
 ```
-python tools/validate.py      # check data files
-python tools/package.py       # build dist/PeripheryExpansion-<version>.zip
+python tools/validate.py                    # check data files
+python -m unittest discover -s tests -v     # run rule tests
+python tools/package.py                     # build dist/PeripheryExpansion-<version>.zip
 ```
 
 Python 3.8+ with the standard library only; no third-party packages needed.
