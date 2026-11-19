@@ -1,0 +1,13 @@
+{
+  "id": "PEX_TakeoverChain",
+  "stages": [
+    { "order": 1, "id": "PEX_Stage1_Recon", "type": "recon", "weightLimitTons": 35, "maxMechs": 1, "mechClass": "light", "difficulty": 1 },
+    { "order": 2, "id": "PEX_Stage2_Sabotage", "type": "sabotage", "weightLimitTons": 100, "difficulty": 2 },
+    { "order": 3, "id": "PEX_Stage3_Ambush", "type": "ambush", "weightLimitTons": 200, "difficulty": 3 },
+    { "order": 4, "id": "PEX_Stage4_BaseAssault", "type": "assault", "weightLimitTons": 300, "difficulty": 4 },
+    { "order": 5, "id": "PEX_Stage5_PlanetAssault", "type": "planet_assault", "weightLimitTons": 400, "difficulty": 5,
+      "baseMissionTemplate": "TO_BE_SET_FROM_HARDEST_EXISTING_MISSION" }
+  ],
+  "onFailure": { "resetsChain": false },
+  "onSuccess": { "transferExistingIndustries": true }
+}

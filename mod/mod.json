@@ -1,0 +1,10 @@
+{
+  "displayName": "Periphery Expansion",
+  "version": "0.1.0",
+  "buildNumber": 1,
+  "description": "Conquer adjacent Periphery planets through a five-mission campaign and run them as a power base.",
+  "author": "TooGoooD1",
+  "authorURL": "https://github.com/TooGoooD1/mw5-periphery-expansion",
+  "defaultLoadOrder": 100,
+  "manifest": []
+}

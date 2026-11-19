@@ -1,0 +1,7 @@
+{
+  "industries": [
+    { "id": "PEX_Industry_MechManufacturing", "label": "Mech manufacturing" },
+    { "id": "PEX_Industry_WeaponManufacturing", "label": "Weapon manufacturing" },
+    { "id": "PEX_Industry_PilotAcademy", "label": "Pilot training academy", "allAcademyTypes": true }
+  ]
+}

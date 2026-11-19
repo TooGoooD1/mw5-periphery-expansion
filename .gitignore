@@ -1,0 +1,16 @@
+# Unreal / MW5 Mod Editor build output
+Binaries/
+Intermediate/
+Saved/
+DerivedDataCache/
+.vs/
+*.sln
+*.VC.db
+# Packaging output
+dist/
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+__pycache__/

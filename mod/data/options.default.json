@@ -1,0 +1,11 @@
+{
+  "maxPlanetsControlled": 5,
+  "eligibleFactions": ["Periphery"],
+  "retryCooldownEnabled": false,
+  "speedScaling": { "capMultiplier": 1.25 },
+  "discount": { "perPlanetPercent": 10, "capPercent": 40 },
+  "zone": {
+    "perimeterColor": "#FFB000FF",
+    "interiorColor": "#FFB00040"
+  }
+}
