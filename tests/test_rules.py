@@ -95,6 +95,22 @@ class FactionGroupTests(unittest.TestCase):
         self.assertIn("TaurianConcordat", out)
 
 
+class DefaultEligibilityTests(unittest.TestCase):
+    def test_default_groups_expand(self):
+        out = r.expand_factions(OPTS["eligibleFactions"], GROUPS)
+        self.assertEqual(out, ["Independent", "NoFaction"])
+
+    def test_default_excludes_periphery_states(self):
+        out = r.expand_factions(OPTS["eligibleFactions"], GROUPS)
+        self.assertNotIn("TaurianConcordat", out)
+        self.assertNotIn("Periphery", out)
+
+    def test_periphery_can_be_added(self):
+        out = r.expand_factions(["Factionless", "Periphery"], GROUPS)
+        self.assertIn("NoFaction", out)
+        self.assertIn("TaurianConcordat", out)
+
+
 class ChainTests(unittest.TestCase):
     def test_next_stage(self):
         self.assertEqual(r.next_stage(0), 1)

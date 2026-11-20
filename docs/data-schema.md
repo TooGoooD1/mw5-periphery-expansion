@@ -8,11 +8,11 @@ logic must match `tools/takeover_rules.py`. All ids use the `PEX_` prefix.
 | Key | Meaning |
 |---|---|
 | maxPlanetsControlled | Cap on planets held (default 5) |
-| eligibleFactions | Factions or faction groups that can be targeted (default group `Periphery`, see factions.json) |
+| eligibleFactions | Faction groups or single factions that can be targeted (default groups `Factionless` and `Independent`, see factions.json; `Periphery` can be added) |
 | retryCooldownEnabled | Cooldown after a failed mission |
 | speedScaling.capMultiplier | Max facility speed (1.25) |
 | discount.perPlanetPercent / capPercent | Repair and re-mod discount |
-| zone.perimeterColor / interiorColor | Zone colours, `#RRGGBBAA` |
+| zone.perimeterColor / interiorColor | Zone colours, `#RRGGBBAA`. Stretch goal: the base game draws merc areas as a fixed dashed circle |
 
 Where the game's options UI is needed, these are exposed through ModOptions
 (see compatibility.md); the values above are the defaults.
@@ -32,9 +32,10 @@ Mech manufacturing, weapon manufacturing and pilot academies. Ownership of
 existing planet industries transfers on takeover.
 
 ## factions.json
-Draft grouping of the individual Periphery state assets seen in the editor's
-`Content\Factions` folder, plus the `PlayerFaction` asset and leads
-(`RivalMercs`, `ClusterOwners`) to inspect for zone drawing.
+Faction groups used by `eligibleFactions`: `Factionless` (NoFaction), `Independent`,
+and a draft `Periphery` group of the individual states seen in the editor's
+`Content\Factions` folder. Also records stencil ids observed on faction assets
+and leads to inspect.
 
 ## Still to define (needs the Mod Editor)
 - Planet ids and star-map adjacency taken from the game's own planet data

@@ -1,6 +1,12 @@
 {
-  "note": "Draft. Asset names read from screenshots of Content/Factions in the Mod Editor; the Periphery grouping uses BattleTech lore and must be verified against the game's own planet/faction data.",
+  "note": "Draft. Asset names read from screenshots of Content/Factions in the Mod Editor. The Factionless and Independent groups assume the NoFaction and Independent assets are what the star map shows as FACTIONLESS and Independents: verify. The Periphery grouping uses BattleTech lore and must be verified against the game's data.",
   "factionGroups": {
+    "Factionless": [
+      "NoFaction"
+    ],
+    "Independent": [
+      "Independent"
+    ],
     "Periphery": [
       "Periphery",
       "MagistracyOfCanopus",
@@ -19,5 +25,18 @@
     ]
   },
   "playerFactionAsset": "PlayerFaction",
-  "leadsToInspect": ["Factions/RivalMercs", "Factions/ClusterOwners", "Factions/PlayerFaction"]
+  "leadsToInspect": [
+    "Campaign/TimelineEvents",
+    "Campaign/Clusters",
+    "Campaign/RivalMercs",
+    "Factions/ClusterOwners",
+    "Factions/NoFaction",
+    "Factions/Independent"
+  ],
+  "observedStencilIds": {
+    "TaurianConcordat": "Periphery",
+    "WolfsDragoons": "Abandoned or Independent",
+    "PlayerFaction": "Periphery",
+    "Periphery": "Periphery"
+  }
 }

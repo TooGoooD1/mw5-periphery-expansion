@@ -3,6 +3,8 @@
 All notable changes are recorded here. Versioning follows semver.
 
 ## [Unreleased]
+- Default takeover targets are now factionless and independent planets; Periphery is an optional group.
+- Design: area of control follows the base game's merc circle and logo; custom colours are a stretch goal.
 - Restructured for the real Mod Editor layout: design specs moved to `spec/`, removed the guessed `mod/mod.json` and packaging script, added `docs/editor-workflow.md` and `docs/releasing.md`.
 - Added faction groups (`spec/factions.json`) and `expand_factions` rule.
 - Updated compatibility notes with Yet Another Legendary Mech and Yet Another Weapon - Complete Edition.

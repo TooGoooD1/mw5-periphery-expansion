@@ -1,6 +1,6 @@
 # Periphery Expansion (MechWarrior 5: Mercenaries mod)
 
-Conquer Periphery planets with your mercenary company through a five-mission
+Conquer factionless and independent planets with your mercenary company through a five-mission
 campaign per planet, then run them as a power base: mech and weapon
 manufacturing, pilot academies, repair and re-mod discounts, and a visible
 zone of control on the star map.
@@ -12,13 +12,13 @@ zone of control on the star map.
 
 ## Features (planned)
 
-- Take over adjacent Periphery planets (other factions selectable in options)
+- Take over adjacent factionless and independent planets by default (Periphery states and other factions selectable in options)
 - Five escalating missions per planet: 35-ton recon up to a 400-ton assault
 - Up to 5 planets by default (configurable)
 - Industries page: mech manufacturing, weapon manufacturing, pilot academies
 - Existing industries transfer to you on takeover
 - Repair, re-mod and build time scale with planets held: 0.25x at 1 planet up to 1.25x at 5+
-- Company logo and zone of control on the star map, perimeter and interior colours configurable
+- Company logo and area of control on the star map, drawn like the base game's merc circles (custom colours are a stretch goal)
 
 ## Compatibility
 

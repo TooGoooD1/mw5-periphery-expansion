@@ -1,10 +1,11 @@
 {
   "maxPlanetsControlled": 5,
-  "eligibleFactions": ["Periphery"],
+  "eligibleFactions": ["Factionless", "Independent"],
   "retryCooldownEnabled": false,
   "speedScaling": { "capMultiplier": 1.25 },
   "discount": { "perPlanetPercent": 10, "capPercent": 40 },
   "zone": {
+    "note": "Stretch goal: the base game draws merc areas as a fixed dashed circle with a logo, so custom colours may need custom star-map UI.",
     "perimeterColor": "#FFB000FF",
     "interiorColor": "#FFB00040"
   }

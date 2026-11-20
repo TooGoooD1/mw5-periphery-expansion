@@ -69,6 +69,8 @@ if factions:
     groups = factions.get("factionGroups", {})
     check("Periphery" in groups.get("Periphery", []),
           "Periphery group must contain the Periphery faction itself")
+    for name in (opts or {}).get("eligibleFactions", []):
+        check(name in groups, f"eligibleFactions entry {name!r} is not a faction group")
 
 if errors:
     print("Validation failed:")
