@@ -7,9 +7,9 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import takeover_rules as r  # noqa: E402
 
-MODS = json.loads((ROOT / "mod/data/modifiers.json").read_text())
+MODS = json.loads((ROOT / "spec/modifiers.json").read_text())
 TABLE, CAP = MODS["speedMultiplierByPlanetsHeld"], MODS["capMultiplier"]
-OPTS = json.loads((ROOT / "mod/data/options.default.json").read_text())
+OPTS = json.loads((ROOT / "spec/options.default.json").read_text())
 
 # Placeholder star map: A-B-C-D in a line, E is off on its own.
 ADJ = {"A": ["B"], "B": ["A", "C"], "C": ["B", "D"], "D": ["C"], "E": []}
@@ -76,6 +76,25 @@ class EligibilityTests(unittest.TestCase):
         self.assertEqual(self.targets([]), ["A", "B", "C", "E"])
 
 
+GROUPS = json.loads((ROOT / "spec/factions.json").read_text())["factionGroups"]
+
+
+class FactionGroupTests(unittest.TestCase):
+    def test_periphery_group_expands(self):
+        out = r.expand_factions(["Periphery"], GROUPS)
+        self.assertIn("Periphery", out)
+        self.assertIn("MagistracyOfCanopus", out)
+        self.assertGreater(len(out), 5)
+
+    def test_plain_names_pass_through(self):
+        self.assertEqual(r.expand_factions(["Pirate"], GROUPS), ["Pirate"])
+
+    def test_mixed(self):
+        out = r.expand_factions(["Pirate", "Periphery"], GROUPS)
+        self.assertIn("Pirate", out)
+        self.assertIn("TaurianConcordat", out)
+
+
 class ChainTests(unittest.TestCase):
     def test_next_stage(self):
         self.assertEqual(r.next_stage(0), 1)
@@ -83,7 +102,7 @@ class ChainTests(unittest.TestCase):
         self.assertIsNone(r.next_stage(5))
 
     def test_chain_file_matches_length(self):
-        chain = json.loads((ROOT / "mod/data/takeover_chain.json").read_text())
+        chain = json.loads((ROOT / "spec/takeover_chain.json").read_text())
         self.assertEqual(len(chain["stages"]), r.CHAIN_LENGTH)
 
 

@@ -5,7 +5,7 @@ campaign per planet, then run them as a power base: mech and weapon
 manufacturing, pilot academies, repair and re-mod discounts, and a visible
 zone of control on the star map.
 
-> **Status: pre-alpha scaffold.** Data definitions and tooling exist; the
+> **Status: pre-alpha scaffold.** Design specs, rules and tests exist; the
 > Blueprint/UI work (industries page, star-map overlay, options menu) has not
 > been started. It requires the MechWarrior 5 Mod Editor (UE 4.26 build,
 > via the Epic Games Launcher). Unreal Engine 5.x cannot be used.
@@ -30,10 +30,10 @@ other mods' files. See `docs/compatibility.md`.
 ## Repository layout
 
 ```
-mod/            Mod package contents (mod.json + data)
-  data/         options, modifiers, takeover chain, industries
-docs/           design and compatibility notes
-tools/          validate.py, takeover_rules.py (reference rules), package.py
+mod/            Mod Editor project folder PeripheryExpansion (moved in, see docs/editor-workflow.md)
+spec/           design specs: options, modifiers, takeover chain, industries, factions
+docs/           design, compatibility, editor workflow, releasing
+tools/          validate.py, takeover_rules.py (reference rules)
 tests/          unit tests for the rules
 scripts/        helper scripts for first-time git setup
 .github/        CI workflow that runs the validator
@@ -44,7 +44,6 @@ scripts/        helper scripts for first-time git setup
 ```
 python tools/validate.py                    # check data files
 python -m unittest discover -s tests -v     # run rule tests
-python tools/package.py                     # build dist/PeripheryExpansion-<version>.zip
 ```
 
 Python 3.8+ with the standard library only; no third-party packages needed.

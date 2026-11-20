@@ -14,3 +14,8 @@ Thumbs.db
 .vscode/
 .idea/
 __pycache__/
+# Mod Editor plugin folder
+mod/PeripheryExpansion/Binaries/
+mod/PeripheryExpansion/Intermediate/
+mod/PeripheryExpansion/Saved/
+mod/PeripheryExpansion/ActiveMod.txt

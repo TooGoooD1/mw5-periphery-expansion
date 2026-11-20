@@ -1,0 +1,23 @@
+{
+  "note": "Draft. Asset names read from screenshots of Content/Factions in the Mod Editor; the Periphery grouping uses BattleTech lore and must be verified against the game's own planet/faction data.",
+  "factionGroups": {
+    "Periphery": [
+      "Periphery",
+      "MagistracyOfCanopus",
+      "MarianHegemony",
+      "TaurianConcordat",
+      "OutworldsAlliance",
+      "CircinusFederation",
+      "TortugaDominions",
+      "IllyrianPalatinate",
+      "LothianLeague",
+      "FiefdomOfRandis",
+      "DuchyOfAnduren",
+      "NiopsAssociation",
+      "OberonConfederation",
+      "RimCollection"
+    ]
+  },
+  "playerFactionAsset": "PlayerFaction",
+  "leadsToInspect": ["Factions/RivalMercs", "Factions/ClusterOwners", "Factions/PlayerFaction"]
+}

@@ -24,10 +24,10 @@ def check(cond, msg):
         errors.append(msg)
 
 
-for p in sorted((ROOT / "mod").rglob("*.json")):
+for p in sorted((ROOT / "spec").rglob("*.json")):
     load(p)
 
-chain = load(ROOT / "mod/data/takeover_chain.json")
+chain = load(ROOT / "spec/takeover_chain.json")
 if chain:
     stages = chain.get("stages", [])
     check(len(stages) == 5, "takeover chain must have exactly 5 stages")
@@ -43,7 +43,7 @@ if chain:
         check([s.get("order") for s in stages] == [1, 2, 3, 4, 5],
               "stage order must be 1..5")
 
-mods = load(ROOT / "mod/data/modifiers.json")
+mods = load(ROOT / "spec/modifiers.json")
 if mods:
     table = mods.get("speedMultiplierByPlanetsHeld", {})
     cap = mods.get("capMultiplier", 0)
@@ -53,7 +53,7 @@ if mods:
     check(bool(vals) and max(vals) <= cap, "speed table exceeds capMultiplier")
     check(cap <= 1.25, "capMultiplier must not exceed 1.25")
 
-opts = load(ROOT / "mod/data/options.default.json")
+opts = load(ROOT / "spec/options.default.json")
 if opts:
     check(opts.get("maxPlanetsControlled", 0) >= 1, "maxPlanetsControlled must be >= 1")
     check(opts.get("speedScaling", {}).get("capMultiplier", 0) <= 1.25,
@@ -63,6 +63,12 @@ if opts:
           "zone.perimeterColor must be #RRGGBBAA")
     check(takeover_rules.valid_color(zone.get("interiorColor")),
           "zone.interiorColor must be #RRGGBBAA")
+
+factions = load(ROOT / "spec/factions.json")
+if factions:
+    groups = factions.get("factionGroups", {})
+    check("Periphery" in groups.get("Periphery", []),
+          "Periphery group must contain the Periphery faction itself")
 
 if errors:
     print("Validation failed:")

@@ -3,7 +3,7 @@
 Condensed from the full design document (v0.1). Section numbers match the original.
 
 ## 4. Takeover
-- Target must be Periphery by default; other factions enabled in options.
+- Target must be a Periphery faction by default. The game has a `Periphery` faction plus many individual Periphery states (Canopus, Marian Hegemony, Taurian Concordat and others), so "Periphery" is a configurable group (`spec/factions.json`). Other factions can be enabled in options.
 - Target must be adjacent on the star map to an already controlled planet.
 - Max planets controlled: 5 by default (option).
 - Five missions per planet, in order; each unlocks the next:
@@ -24,7 +24,7 @@ Discounts (placeholder): 10% per planet, capped at 40%.
 
 ## 7. Zone and logo
 Company logo and zone drawn on controlled planets; perimeter and interior colours are options.
-Needs verification of how the base game draws mercenary zones.
+Needs verification of how the base game draws mercenary zones. Leads: the `PlayerFaction` asset and the `RivalMercs` and `ClusterOwners` folders under `Content\Factions`.
 
 ## Open items
 - Exact mission templates available in the base game

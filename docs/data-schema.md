@@ -1,13 +1,14 @@
 # Data schema
 
-All ids use the `PEX_` prefix. `tools/takeover_rules.py` is the reference
-implementation; the Blueprint code must match it.
+These are design specs and test fixtures in `spec/`. The game itself reads
+Unreal assets built in the Mod Editor (see `editor-workflow.md`); the in-game
+logic must match `tools/takeover_rules.py`. All ids use the `PEX_` prefix.
 
-## options.default.json
+## options.default.json (spec/)
 | Key | Meaning |
 |---|---|
 | maxPlanetsControlled | Cap on planets held (default 5) |
-| eligibleFactions | Factions that can be targeted (default Periphery) |
+| eligibleFactions | Factions or faction groups that can be targeted (default group `Periphery`, see factions.json) |
 | retryCooldownEnabled | Cooldown after a failed mission |
 | speedScaling.capMultiplier | Max facility speed (1.25) |
 | discount.perPlanetPercent / capPercent | Repair and re-mod discount |
@@ -29,6 +30,11 @@ decrease and difficulty must strictly increase.
 ## industries.json
 Mech manufacturing, weapon manufacturing and pilot academies. Ownership of
 existing planet industries transfers on takeover.
+
+## factions.json
+Draft grouping of the individual Periphery state assets seen in the editor's
+`Content\Factions` folder, plus the `PlayerFaction` asset and leads
+(`RivalMercs`, `ClusterOwners`) to inspect for zone drawing.
 
 ## Still to define (needs the Mod Editor)
 - Planet ids and star-map adjacency taken from the game's own planet data

@@ -70,3 +70,15 @@ def next_stage(completed_count):
     if completed_count < 0:
         raise ValueError("completed_count cannot be negative")
     return None if completed_count >= CHAIN_LENGTH else completed_count + 1
+
+
+def expand_factions(selected, groups):
+    """Expand group names (e.g. "Periphery") into individual faction ids.
+
+    Names that are not groups are kept as-is, so options can mix groups and
+    single factions.
+    """
+    out = set()
+    for name in selected:
+        out.update(groups.get(name, [name]))
+    return sorted(out)
