@@ -1,5 +1,5 @@
 {
-  "note": "Draft. Asset names read from screenshots of Content/Factions in the Mod Editor. The Factionless and Independent groups assume the NoFaction and Independent assets are what the star map shows as FACTIONLESS and Independents: verify. The Periphery grouping uses BattleTech lore and must be verified against the game's data.",
+  "note": "NoFaction (shown as Factionless) and Independent (shown as Independents) confirmed in the Mod Editor. The Periphery state grouping uses BattleTech lore and must be verified against the game's data.",
   "factionGroups": {
     "Factionless": [
       "NoFaction"
@@ -26,17 +26,22 @@
   },
   "playerFactionAsset": "PlayerFaction",
   "leadsToInspect": [
-    "Campaign/TimelineEvents",
-    "Campaign/Clusters",
-    "Campaign/RivalMercs",
-    "Factions/ClusterOwners",
-    "Factions/NoFaction",
-    "Factions/Independent"
+    "Campaign/RivalMercs/StarMapInfluencers_CIA",
+    "Campaign/RivalMercs/RadialInfluenceActor",
+    "Campaign/Clusters/VacantWorlds",
+    "Campaign/Clusters/IndustrialHub_1",
+    "Campaign/Clusters/Outreach"
   ],
   "observedStencilIds": {
+    "NoFaction": "None",
+    "Independent": "Abandoned or Independent",
+    "Periphery": "Periphery",
     "TaurianConcordat": "Periphery",
     "WolfsDragoons": "Abandoned or Independent",
-    "PlayerFaction": "Periphery",
-    "Periphery": "Periphery"
+    "PlayerFaction": "Periphery"
+  },
+  "observedNames": {
+    "NoFaction": "Factionless",
+    "Independent": "Independents"
   }
 }

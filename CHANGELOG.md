@@ -3,6 +3,7 @@
 All notable changes are recorded here. Versioning follows semver.
 
 ## [Unreleased]
+- Added docs/game-data-findings.md (Mod Editor and star map findings) and confirmed NoFaction and Independent faction assets.
 - Default takeover targets are now factionless and independent planets; Periphery is an optional group.
 - Design: area of control follows the base game's merc circle and logo; custom colours are a stretch goal.
 - Restructured for the real Mod Editor layout: design specs moved to `spec/`, removed the guessed `mod/mod.json` and packaging script, added `docs/editor-workflow.md` and `docs/releasing.md`.
