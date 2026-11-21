@@ -3,6 +3,7 @@
 All notable changes are recorded here. Versioning follows semver.
 
 ## [Unreleased]
+- Documented cluster, hub and merc-circle findings and feasibility risks.
 - Added docs/game-data-findings.md (Mod Editor and star map findings) and confirmed NoFaction and Independent faction assets.
 - Default takeover targets are now factionless and independent planets; Periphery is an optional group.
 - Design: area of control follows the base game's merc circle and logo; custom colours are a stretch goal.

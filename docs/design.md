@@ -32,6 +32,13 @@ What the star map actually shows (from in-game screenshots):
 Plan: copy the merc circle and logo for our company. Custom perimeter and interior colours are a stretch goal; they probably need custom star-map UI.
 The company name and logo are chosen by the player at the start of a campaign, so the overlay must read the live player data, not the default `PlayerFaction` asset. How the game stores that is still unknown.
 
+## Feasibility risks (as of v0.2)
+- Planet ownership appears to be a date-driven timeline; changing it at runtime in a mod is unproven.
+- Hubs and merc areas are static data assets plus Blueprint actors. A mod that works on any planet the player takes may need custom campaign Blueprint logic, not just new data.
+- Native (C++) base classes cannot be changed; we can only subclass or add Blueprints.
+- Custom colours are probably not possible without custom UI.
+Plan: prove the smallest pieces first (a mod-added cluster that shows up in game; a mod-added merc circle) before building the five-mission chain.
+
 ## Open items
 - Where merc areas are defined (leads: `Campaign\RivalMercs`, `Campaign\Clusters`, `Factions\ClusterOwners`)
 - How planet ownership changes over time (lead: `Campaign\TimelineEvents`)

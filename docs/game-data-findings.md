@@ -37,8 +37,26 @@ Confirmed:
 - Enable/Disable/Lock StarMap ArcActions: story arcs switch map features on and off.
 - StarMapInfluencerManager and StarMapInfluencers_CIA: see RivalMercs.
 
+## Clusters and hubs (Content/Campaign/Clusters)
+Confirmed (asset details seen in the editor):
+- `IndustrialHub_1_ClusterAsset` is an `MWClusterDataAsset`: Is Legacy Cluster (checked), Priority 0, a Toi Data fragment, a **Cluster Faction Asset** (`RepairSystem_1`), a **Cluster Overlay** (`Safezone_1_Blob`), a **Cluster Constellation** (`Safezone_1`) and a set of **6 System Ids**.
+- `RepairSystem_1` is an `MWFactionAsset` named "Safe Zone" ("This is a safe zone."), stencil Abandoned or Independent, Primary colour bright cyan, Secondary and Tertiary empty, wrench logo, no traits.
+- `VacantWorlds_ClusterAsset` has the same structure (faction `EmptyWorlds`, overlay `9_2`, no constellation, 6 System Ids). It is a 6-system cluster, so it is probably not a list of all factionless planets.
+
+Hypotheses:
+- The teal areas seen around hubs may be cluster overlays drawn with the cluster faction asset's Primary colour (RepairSystem_1's cyan matches). If true, the user's early guess that faction colours affect the map is right for cluster faction assets, though not for ordinary faction paint.
+- Hub bonuses (repair cost and time -15%, purchases -15%) probably come from the Toi Data fragment. Not yet inspected.
+- A hub is one cluster of several systems, defined as static data. Per-planet clusters created at runtime for planets the player takes may not be possible without custom Blueprint logic.
+
+## Merc circle Blueprints
+- `StarMapInfluencers_CIA` (campaign instanced actor asset) auto-spawns `StarMapInfluencerManager` (server spawn).
+- `StarMapInfluencerManager` is a Blueprint child of `MWCampaignInstancedActor`, implements the Area Interface (Notify Area Loaded, Notify Area Entered, Notify Unit Spawned) and has `GetStarMapActor`, `IsSetup` and `bHasSpawned`. Its Event Graph appears to loop over something and spawn `RadialInfluenceActor`s, but the nodes were too small to read.
+- `RadialInfluenceActor` is a Blueprint child of the native `MWStarMapRadialInfluence`. It has a radius indicator and a merc icon, and `RemoveIfClanConqueredArea` removes the area when a Clan controls the system, using Get Controlling Faction for Star System with the current date from the timeline model.
+
 ## Open questions
 1. Where are the planets themselves (owner, position, industries) defined?
 2. Can a mod add a RadialInfluenceActor for the player company, and how is the live company logo supplied?
-3. How do industrial hubs in `Clusters` apply their bonuses, and can a mod add new ones?
+3. What does the Toi Data fragment on a hub cluster contain, and can a mod add new clusters or change which systems a cluster holds at runtime?
+3b. What does the manager loop over (data assets by type?), and would a new mod asset of that type be picked up automatically?
+3c. Is planet ownership a date-driven timeline in the persistent model, and can a mod change it during a campaign?
 4. Does the Independent stencil really draw the teal fill?
