@@ -37,6 +37,9 @@ and a draft `Periphery` group of the individual states seen in the editor's
 `Content\Factions` folder. Also records stencil ids observed on faction assets
 and leads to inspect.
 
+## Planet identifiers
+The game identifies star systems by numeric system id (for example 911, 1049), not by name. Our adjacency data and cluster definitions must use those ids.
+
 ## Still to define (needs the Mod Editor)
 - Planet ids and star-map adjacency taken from the game's own planet data
 - Real mission template ids for stages 1 to 5

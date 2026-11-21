@@ -37,6 +37,7 @@ The company name and logo are chosen by the player at the start of a campaign, s
 - Hubs and merc areas are static data assets plus Blueprint actors. A mod that works on any planet the player takes may need custom campaign Blueprint logic, not just new data.
 - Native (C++) base classes cannot be changed; we can only subclass or add Blueprints.
 - Custom colours are probably not possible without custom UI.
+- The merc-circle manager only spawns circles when `DLC.DLC4` is owned and the merc company's reputation is high enough, so a circle added through the same route would inherit that gate.
 Plan: prove the smallest pieces first (a mod-added cluster that shows up in game; a mod-added merc circle) before building the five-mission chain.
 
 ## Open items
